@@ -3,15 +3,15 @@ Tarih:​​ 13 Şubat 2021​
 
 x86 mimarisine ait bir Assembly yazı dizgesi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil)yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı dizgesinden istifade etmek isteyenlerin ön araştırma yapmalarına yardımcı olacak kapsamda da bahislere yer vereceğim.Ayrıca bu yazı dizgesinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:
 
--Aynı anda kapsamlı araştırmalar yaparak, paralel olarak takip edin.
--Kavramları etimolojik olarak da inceleyin.
--Not alın.
--Okuduğunuz iki yazı arasında uzun bir müddet varsa aldığınızı varsaydığımnotlarınızı tekrar edin.
+- Aynı anda kapsamlı araştırmalar yaparak, paralel olarak takip edin.
+- Kavramları etimolojik olarak da inceleyin.
+- Not alın.
+- Okuduğunuz iki yazı arasında uzun bir müddet varsa aldığınızı varsaydığımnotlarınızı tekrar edin.
 
 Başlamadan önce bazı uyarılar: 
--Bu yazıda “Intel x86 mimarisi için Assembly” den kısaca “Assembly” diye bahsedilecektir.Yani x64'e dair hiçbir şeyden bahsedilmeyecektir​.
--Ayrıca okunmasını tavsiye ettiğim bazı referansları yazının en alt kısmında paylaştım. Çok fazla şey koymadım ama araştırmaya başlamak için ideal yazılar olduğunu söylemekte fayda var.
--Yazı ağır bir analoji metodolojisi izlemektedir.Benzetme sanatının anlama ve öğrenmede en etkili yaklaşım olduğuna inandığım için faydasının olacağı kanaatindeyim.
+- Bu yazıda “Intel x86 mimarisi için Assembly” den kısaca “Assembly” diye bahsedilecektir.Yani x64'e dair hiçbir şeyden bahsedilmeyecektir​.
+- Ayrıca okunmasını tavsiye ettiğim bazı referansları yazının en alt kısmında paylaştım. Çok fazla şey koymadım ama araştırmaya başlamak için ideal yazılar olduğunu söylemekte fayda var.
+- Yazı ağır bir analoji metodolojisi izlemektedir.Benzetme sanatının anlama ve öğrenmede en etkili yaklaşım olduğuna inandığım için faydasının olacağı kanaatindeyim.
 
 #### Her Problemi Çözen Tek Bir Problem Vardır
 
@@ -142,11 +142,11 @@ Yukarıda oldukça baside indirgeyerek  cevaplamaya çalıştığımız “Bir i
 6. 6.x86 Assembly 6. Bölüm : C İthalat-İhracat AŞ.
 
 Okuma Listesi
--https://stackoverflow.com/a/6463981/15258319
--https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory.
--https://en.wikipedia.org/wiki/Instruction_set_architecture
--https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/
--https://www.techopedia.com/definition/938/binary-format
--https://en.wikipedia.org/wiki/Instruction_cycle
--https://en.wikipedia.org/wiki/Opcode
--Operating Systems: From 0 to 1'ın 4. bölümü
+- https://stackoverflow.com/a/6463981/15258319
+- https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory.
+- https://en.wikipedia.org/wiki/Instruction_set_architecture
+- https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/
+- https://www.techopedia.com/definition/938/binary-format
+- https://en.wikipedia.org/wiki/Instruction_cycle
+- https://en.wikipedia.org/wiki/Opcode
+- Operating Systems: From 0 to 1'ın 4. bölümü

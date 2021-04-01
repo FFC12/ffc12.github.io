@@ -11,15 +11,19 @@
     <body>
         <h1 id="x86-assembly-yazılarının-mukaddimesi">x86 Assembly Yazılarının Mukaddimesi</h1>
 <p>Tarih:​​ 13 Şubat 2021​  </p>
-<p>x86 mimarisine ait bir Assembly yazı dizgesi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil)yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı dizgesinden istifade etmek isteyenlerin ön araştırma yapmalarına yardımcı olacak kapsamdada bahislere yer vereceğim.Ayrıca bu yazı dizgesinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:</p>
-<p>-Aynı anda kapsamlı araştırmalar yaparak, paralel olarak takip edin.
--Kavramları etimolojik olarak da inceleyin.
--Not alın.
--Okuduğunuz iki yazı arasında uzun bir müddet varsa aldığınızı varsaydığımnotlarınızı tekrar edin.</p>
-<p>Başlamadan önce bazı uyarılar: 
--Bu yazıda “Intel x86 mimarisi için Assembly” den kısaca “Assembly” diye bahsedilecektir.Yani x64&#39;e dair hiçbir şeyden bahsedilmeyecektir​.
--Ayrıca okunmasını tavsiye ettiğim bazı referansları yazının en alt kısmında paylaştım. Çok fazla şey koymadım ama araştırmaya başlamak için ideal yazılar olduğunu söylemekte fayda var.
--Yazı ağır bir analoji metodolojisi izlemektedir.Benzetme sanatının anlama ve öğrenmede en etkili yaklaşım olduğuna inandığım için faydasının olacağı kanaatindeyim.</p>
+<p>x86 mimarisine ait bir Assembly yazı dizgesi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil)yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı dizgesinden istifade etmek isteyenlerin ön araştırma yapmalarına yardımcı olacak kapsamda da bahislere yer vereceğim.Ayrıca bu yazı dizgesinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:</p>
+<ul>
+<li>Aynı anda kapsamlı araştırmalar yaparak, paralel olarak takip edin.</li>
+<li>Kavramları etimolojik olarak da inceleyin.</li>
+<li>Not alın.</li>
+<li>Okuduğunuz iki yazı arasında uzun bir müddet varsa aldığınızı varsaydığımnotlarınızı tekrar edin.</li>
+</ul>
+<p>Başlamadan önce bazı uyarılar: </p>
+<ul>
+<li>Bu yazıda “Intel x86 mimarisi için Assembly” den kısaca “Assembly” diye bahsedilecektir.Yani x64&#39;e dair hiçbir şeyden bahsedilmeyecektir​.</li>
+<li>Ayrıca okunmasını tavsiye ettiğim bazı referansları yazının en alt kısmında paylaştım. Çok fazla şey koymadım ama araştırmaya başlamak için ideal yazılar olduğunu söylemekte fayda var.</li>
+<li>Yazı ağır bir analoji metodolojisi izlemektedir.Benzetme sanatının anlama ve öğrenmede en etkili yaklaşım olduğuna inandığım için faydasının olacağı kanaatindeyim.</li>
+</ul>
 <h4 id="her-problemi-çözen-tek-bir-problem-vardır">Her Problemi Çözen Tek Bir Problem Vardır</h4>
 <p>Hemen her programlama dilini öğrenmeye başladığımızda yazdığımız ilk program bir “Hello,world!” programı olur.Bu teamülü devam ettirerek biz de banal bir “Hello, world!” programını Assembly ile yazalım hemen.</p>
 <pre><code>global​ main
@@ -88,15 +92,17 @@ artır</code></pre><p>soyutladığım kelimelerle bir program yazmıştım ve as
 <li>5.x86 Assembly 5. Bölüm : Macro-lar Dost Mudur Düşman Mıdır?</li>
 <li>6.x86 Assembly 6. Bölüm : C İthalat-İhracat AŞ.</li>
 </ol>
-<p>Okuma Listesi
--<a href="https://stackoverflow.com/a/6463981/15258319">https://stackoverflow.com/a/6463981/15258319</a>
--<a href="https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory">https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory</a>.
--<a href="https://en.wikipedia.org/wiki/Instruction_set_architecture">https://en.wikipedia.org/wiki/Instruction_set_architecture</a>
--<a href="https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/">https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/</a>
--<a href="https://www.techopedia.com/definition/938/binary-format">https://www.techopedia.com/definition/938/binary-format</a>
--<a href="https://en.wikipedia.org/wiki/Instruction_cycle">https://en.wikipedia.org/wiki/Instruction_cycle</a>
--<a href="https://en.wikipedia.org/wiki/Opcode">https://en.wikipedia.org/wiki/Opcode</a>
--Operating Systems: From 0 to 1&#39;ın 4. bölümü</p>
+<p>Okuma Listesi</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/6463981/15258319">https://stackoverflow.com/a/6463981/15258319</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory">https://en.wikipedia.org/wiki/Central_processing_unit#:~:text=The%20actual%20mathematical%20operation%20for,storing%20the%20result%20to%20memory</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Instruction_set_architecture">https://en.wikipedia.org/wiki/Instruction_set_architecture</a></li>
+<li><a href="https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/">https://www.microcontrollertips.com/risc-vs-cisc-architectures-one-better/</a></li>
+<li><a href="https://www.techopedia.com/definition/938/binary-format">https://www.techopedia.com/definition/938/binary-format</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Instruction_cycle">https://en.wikipedia.org/wiki/Instruction_cycle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Opcode">https://en.wikipedia.org/wiki/Opcode</a></li>
+<li>Operating Systems: From 0 to 1&#39;ın 4. bölümü</li>
+</ul>
 
     </body>
 </html>
