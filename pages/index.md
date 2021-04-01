@@ -1,7 +1,6 @@
-# Welcome to my site
+# Bloğa Hoşgeldin
 
-### This is fancy
+Genellikle Türkçe makeleler ve blog yazıları içeren bu blogtaki şuanki mevcut içerikler:
 
-This is written in markdown
+1. [x86 Assembly Yazı Dizgesinin Mukaddimesi - Giriş Yazısı](?assembly-mukaddime)
 
-Check out [this markdown page](?test)
