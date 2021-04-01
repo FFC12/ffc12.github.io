@@ -1,7 +1,7 @@
 # x86 Assembly Yazılarının Mukaddimesi 
 Tarih:​​ 13 Şubat 2021​  
 
-x86 mimarisine ait bir Assembly yazı dizgesi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil)yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı dizgesinden istifade etmek isteyenlerin ön araştırma yapmalarına yardımcı olacak kapsamdada bahislere yer vereceğim.Ayrıca bu yazı dizgesinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:
+x86 mimarisine ait bir Assembly yazı dizgesi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil)yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı dizgesinden istifade etmek isteyenlerin ön araştırma yapmalarına yardımcı olacak kapsamda da bahislere yer vereceğim.Ayrıca bu yazı dizgesinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:
 
 -Aynı anda kapsamlı araştırmalar yaparak, paralel olarak takip edin.
 -Kavramları etimolojik olarak da inceleyin.
