@@ -58,23 +58,23 @@ kadarıyla yetinerek bu iki sentaks kuralına yakından gözatalım.
 İlk olarak AT&T sentaksını ele alalım.Hatta şuan hiçbir şeyden anlamıyor olsak da sadece
 gözümüzün ucuyla bakmak için basit bir “Hello world” uygulamasını inceleyelim.
 
-```
+```assembly
 .text
 .global _start
 _start:
-movl ​$13​, ​%edx
-movl ​$msg​, ​%ecx
-movl $​1​, ​%ebx
-movl $​4, ​%eax
-int $​0​x80
+    movl ​$13​, ​%edx
+    movl ​$msg​, ​%ecx
+    movl $​1​, ​%ebx
+    movl $​4, ​%eax
+    int $​0​x80
 
-movl $​0, ​%ebx
-movl $​1​, ​%eax
-int $​0x80
+    movl $​0, ​%ebx
+    movl $​1​, ​%eax
+    int $​0x80
 
 .data
 msg:
-.​ascii​ ​"Hello world!\n"
+    .​ascii​ ​"Hello world!\n"
 ```
 
 Bu sentaks oldukça basit bir işi, Linux sistem çağrılarını (syscall) kullanarak “Hello, world”
@@ -105,24 +105,24 @@ AT&T sentaksına kabaca bakarken yaptığımız gibi hemen Intel sentaksı ile y
 Intel sentaksı sade ve anlaşılır olması bakımından çok fazla sevilir. Öğrenmeye yeni
 başlarken genelde tercih edilen sentaks da Intel’in ki olur. Ama AT&T’nin aksine kod satır
 
-```
+```assembly
 ;intel syntax
 global​ _start
 section​ .data
 message:
-db​ ​'Hello world!'​,​ 0
+    db​ ​'Hello world!'​,​ 0
 section​ .text
 _start:
-​mov​ ​eax​, ​0x03
-​mov​ ​ebx​, ​0x01
-​mov​ ​ecx​, message
-​mov​ ​edx​, ​12
-​int​ ​0x80
+    ​mov​ ​eax​, ​0x03
+    ​mov​ ​ebx​, ​0x01
+    ​mov​ ​ecx​, message
+    ​mov​ ​edx​, ​12
+    ​int​ ​0x80
 
-​mov​ ​eax​, ​0x01
-​mov​ ​ebx​, ​0x00
-​int​ ​0x80
-​ret
+    ​mov​ ​eax​, ​0x01
+    ​mov​ ​ebx​, ​0x00
+    ​int​ ​0x80
+    ​ret
 ```
 
 sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine

@@ -57,22 +57,23 @@ kadarıyla yetinerek bu iki sentaks kuralına yakından gözatalım.</p>
 <h2 id="my-old-friend-att--eski-dostum-att">My Old Friend, AT&amp;T – Eski Dostum, AT&amp;T</h2>
 <p>İlk olarak AT&amp;T sentaksını ele alalım.Hatta şuan hiçbir şeyden anlamıyor olsak da sadece
 gözümüzün ucuyla bakmak için basit bir “Hello world” uygulamasını inceleyelim.</p>
-<pre><code>.text
+<pre><code class="assembly">.text
 .global _start
 _start:
-movl ​$<span class="hljs-number">13</span>​, ​%edx
-movl ​$msg​, ​%ecx
-movl $​<span class="hljs-number">1</span>​, ​%ebx
-movl $​<span class="hljs-number">4</span>, ​%eax
-int $​<span class="hljs-number">0</span>​x80
+    movl ​$<span class="hljs-number">13</span>​, ​%edx
+    movl ​$msg​, ​%ecx
+    movl $​<span class="hljs-number">1</span>​, ​%ebx
+    movl $​<span class="hljs-number">4</span>, ​%eax
+    int $​<span class="hljs-number">0</span>​x80
 
-movl $​<span class="hljs-number">0</span>, ​%ebx
-movl $​<span class="hljs-number">1</span>​, ​%eax
-int $​<span class="hljs-number">0x80</span>
+    movl $​<span class="hljs-number">0</span>, ​%ebx
+    movl $​<span class="hljs-number">1</span>​, ​%eax
+    int $​<span class="hljs-number">0x80</span>
 
 .data
 msg:
-.​ascii​ ​<span class="hljs-string">"Hello world!\n"</span></code></pre><p>Bu sentaks oldukça basit bir işi, Linux sistem çağrılarını (syscall) kullanarak “Hello, world”
+    .​ascii​ ​<span class="hljs-string">"Hello world!\n"</span></code></pre>
+<p>Bu sentaks oldukça basit bir işi, Linux sistem çağrılarını (syscall) kullanarak “Hello, world”
 yazmaktadır. Sistem çağrısı veya Linux nedir diye endişe etmeyin.İşletim sistemlerinden ve
 sistem çağrılarından (syscall) son kısımda -üçüncü- bahsedeceğiz.Daha önce Assembly ile
 uğraşmadıysanız bu kodu anlamakla uğraşmanıza da gerek yok.Bu yazı dizgesiyle birlikte
@@ -95,23 +96,24 @@ söylenebilir.</p>
 “Hello world” uygulamasını inceleyelim.</p>
 <p>Intel sentaksı sade ve anlaşılır olması bakımından çok fazla sevilir. Öğrenmeye yeni
 başlarken genelde tercih edilen sentaks da Intel’in ki olur. Ama AT&amp;T’nin aksine kod satır</p>
-<pre><code>;intel syntax
+<pre><code class="assembly">;intel syntax
 global​ _start
 section​ .data
 message:
-db​ ​'Hello world!'​,​ <span class="hljs-number">0</span>
+    db​ ​'Hello world!'​,​ <span class="hljs-number">0</span>
 section​ .text
 _start:
-​mov​ ​eax​, ​<span class="hljs-number">0x03</span>
-​mov​ ​ebx​, ​<span class="hljs-number">0x01</span>
-​mov​ ​ecx​, message
-​mov​ ​edx​, ​<span class="hljs-number">12</span>
-​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0x80</span>
+    ​mov​ ​eax​, ​<span class="hljs-number">0x03</span>
+    ​mov​ ​ebx​, ​<span class="hljs-number">0x01</span>
+    ​mov​ ​ecx​, message
+    ​mov​ ​edx​, ​<span class="hljs-number">12</span>
+    ​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0x80</span>
 
-​mov​ ​eax​, ​<span class="hljs-number">0x01</span>
-​mov​ ​ebx​, ​<span class="hljs-number">0x00</span>
-​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0x80</span>
-​ret</code></pre><p>sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine
+    ​mov​ ​eax​, ​<span class="hljs-number">0x01</span>
+    ​mov​ ​ebx​, ​<span class="hljs-number">0x00</span>
+    ​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0x80</span>
+    ​ret</code></pre>
+<p>sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine
 tanıklık edeceksinizdir.Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü
 taraflarına tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
 vadede doğru ve anlaşılır kod yazıp okumak açısından son derece anlamlı bir tercih
