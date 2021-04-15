@@ -19,7 +19,7 @@ yazarken neden önem arz ettiğinden bahis edeceğiz.
 >   Intel okunduğu gibi “Intel” olarak, AT&T ise “eyti end ti” şeklinde telaffuz edilir.
 >
 
-Bu yazıda aslında diğer bölümlerdeki pekçok meselenin temelini atacak ve en önemlisi
+Bu yazıda aslında diğer bölümlerdeki pek çok meselenin temelini atacak ve en önemlisi
 tarihsel olarak bir bakış kazandırmaya gayret edeceğiz. Tarihsel bir bakıştan neyi murad
 ettiğimizi yazının son cümlelerine doğru iyi anlayacağımızı düşünerek geçiyorum.
 
@@ -34,10 +34,8 @@ ettiğimizi yazının son cümlelerine doğru iyi anlayacağımızı düşünere
 
 
 Basitçe bunu bir versus’a indirgeyecek olursak aslında Unix dünyası vs Microsoft şeklinde
-bir versusla da gösterilebilirdi. Unix dünyasında AT&T sentaksı yaygın olarak kullanılır(bknz.
-
-
-PDP-11​) ve ortak Assembly sentaksı olarak kabul görür. Diğer taraftan Unix ve GNU demek
+bir versusla da gösterilebilirdi. Unix dünyasında AT&T sentaksı yaygın olarak kullanılır(bknz.PDP-11​) 
+ve ortak Assembly sentaksı olarak kabul görür. Diğer taraftan Unix ve GNU demek
 Linux demek olduğu için GNU’da Unix dünyasından gelen teamülleri devam ettirmiş ve
 birçok diğer farklı tevarüste olduğu gibi Linux dünyasında da AT&T etkili olmuştur. Yani
 Linux’un derlendiği GCC ve GCC’nin destekleyicisi olan Binutils araçları ve tabi bu araçların
@@ -64,7 +62,7 @@ gözümüzün ucuyla bakmak için basit bir “Hello world” uygulamasını inc
 .text
 .global _start
 _start:
-movl ​13​, ​%edx
+movl ​$13​, ​%edx
 movl ​$msg​, ​%ecx
 movl $​1​, ​%ebx
 movl $​4, ​%eax
