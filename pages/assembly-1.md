@@ -64,18 +64,16 @@ gözümüzün ucuyla bakmak için basit bir “Hello world” uygulamasını inc
 .text
 .global _start
 _start:
-movl ​ 13 ​,​%edx
-movl ​$msg​,​%ecx
-movl $​ 1 ​,​%ebx
-movl $​ 4 ​,​%eax
-int $​ 0 ​x
-```
-```
-movl $​ 0 ​,​%ebx
-movl $​ 1 ​,​%eax
-int $​ 0 ​x
-```
-```
+movl ​13​, ​%edx
+movl ​$msg​, ​%ecx
+movl $​1​, ​%ebx
+movl $​4, ​%eax
+int $​0​x80
+
+movl $​0, ​%ebx
+movl $​1​, ​%eax
+int $​0x80
+
 .data
 msg:
 .​ascii​ ​"Hello world!\n"
@@ -117,16 +115,15 @@ message:
 db​ ​'Hello world!'​,​ 0
 section​ .text
 _start:
-​mov​ ​eax​, ​0x
-​mov​ ​ebx​, ​0x
+​mov​ ​eax​, ​0x03
+​mov​ ​ebx​, ​0x01
 ​mov​ ​ecx​, message
-​mov​ ​edx​, ​ 12
-​int​ ​0x
-```
-```
-​mov​ ​eax​, ​0x
-​mov​ ​ebx​, ​0x
-​int​ ​0x
+​mov​ ​edx​, ​12
+​int​ ​0x80
+
+​mov​ ​eax​, ​0x01
+​mov​ ​ebx​, ​0x00
+​int​ ​0x80
 ​ret
 ```
 
