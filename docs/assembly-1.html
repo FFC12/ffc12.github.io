@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, minimal-ui, initial-scale=1, viewport-fit=cover">
+        <title>x86 Assembly 1. Bölüm : Intel vs AT&amp;T</title>
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link href="assets/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 id="x86-assembly-1-bölüm--intel-vs-att">x86 Assembly 1. Bölüm : Intel vs AT&amp;T</h1>
+<p>Tarih:​ ​25 Şubat 2021​ </p>
+<p>Daha önce şu​ ​giriş​ yazısı ile bu yazı dizgesinin neler ihtiva edeceğinden
+bahsetmiştik.Bu yazıda birinci bölümde ele alınacak olan Assembly diyalektlerinden,
+Assembler-lardan ve İşletim Sistemine bağlı olarak yazacağımız kodun nasıl
+farklılaştığından bahsedeceğiz.</p>
+<p>Assembly yazarken karşımıza iki farklı sentaks kuralı çıkıyor: Intel ve AT&amp;T. Bu iki farklı
+sentaksın da ayrı ayrı kendisine göre avantajları ve tabi dezavantajları bulunuyor.Bu
+yazımda bu konu üzerine derinlemesine bir inceleme yapacağız ve birbirleri üzerindeki
+avantajlarından ve dezavantajlarından bahisler açacağız. Ayrıca bu yazıyı üç kısma bölersek
+-o şekilde yazmayı kafamda tasarlamıştım- birinci kısmı bu oluşturacak iken – Intel vs AT&amp;T
+mevzuu – , ikinci kısımda Assembler-lardan ve üçüncü kısımda da üzerinde çalıştığımız bir
+işletim sisteminin olup olmaması ve bu işletim sistemlerinin farklılıklarının Assembly
+yazarken neden önem arz ettiğinden bahis edeceğiz.</p>
+<pre><code>Intel okunduğu gibi “Intel” olarak, AT&amp;T ise “eyti end ti” şeklinde telaffuz edilir.</code></pre><p>Bu yazıda aslında diğer bölümlerdeki pekçok meselenin temelini atacak ve en önemlisi
+tarihsel olarak bir bakış kazandırmaya gayret edeceğiz. Tarihsel bir bakıştan neyi murad
+ettiğimizi yazının son cümlelerine doğru iyi anlayacağımızı düşünerek geçiyorum.</p>
+<pre><code>Sentaks Nedir?</code></pre><pre><code>Söz zincirinde birbirini izleyen ve belli bir birim oluşturan öğeler birleşimi,
+sözcüklerin tümcede dilbilgisi kurallarına göre dizilişi, sıralanışı.</code></pre><pre><code>Google</code></pre><p>Basitçe bunu bir versus’a indirgeyecek olursak aslında Unix dünyası vs Microsoft şeklinde
+bir versusla da gösterilebilirdi. Unix dünyasında AT&amp;T sentaksı yaygın olarak kullanılır(bknz.</p>
+<p>PDP-11​) ve ortak Assembly sentaksı olarak kabul görür. Diğer taraftan Unix ve GNU demek
+Linux demek olduğu için GNU’da Unix dünyasından gelen teamülleri devam ettirmiş ve
+birçok diğer farklı tevarüste olduğu gibi Linux dünyasında da AT&amp;T etkili olmuştur. Yani
+Linux’un derlendiği GCC ve GCC’nin destekleyicisi olan Binutils araçları ve tabi bu araçların
+en önemlilerinden birisi olan GAS (Gnu Assembler) AT&amp;T sentaksını kullandığı için bu çokça
+yaygın olmuş ve Linux için de ortak Assembler sentaksı olarak kalmıştır. Tabi bu demek
+değildir ki Intel sentaksı Linux dünyasının içerisinde görmezden gelinir veya kullanılmaz.
+GAS diyalekt olarak Intel sentaksını kabul eder ve binary formata dönüştürebilir.Yine tabi
+GCC’de bu diyalekt için Assembly kodu oluşturabilir. Bu söylediklerimizi basit şekilde GCC
+için ​ <strong>-masm=Intel</strong> ​ ​flag​-i veya kaynak kodun içerisinde ​ <strong>“.intel noprefix”</strong> ​ gibi direktiflerle
+yapmak pekala kolay ve mümkündür.Ayrıca Linux’ta kullanılabilecek tek Assembler GAS
+değildir; NASM,modern hali YASM, TASM ve sair birçok farklı Assembler ile de Intel
+sentaksı ana diyalekt olarak kullanılabilir. Diğer tarafta ise, Microsoft dünyasında, Intel
+sentaksı yaygın olmuştur. MS-DOS’la başlayan bu tercih günümüzde Microsoft’un
+MASM’ına kadar gelmiştir.Bunları hususi araştırmanızda fayda olacaktır.Bu yazının ikinci
+kısmında Assembler-lardan bahsederken bu konuya tekrardan geri döneceğiz.Şimdilik bu
+kadarıyla yetinerek bu iki sentaks kuralına yakından gözatalım.</p>
+<h2 id="my-old-friend-att--eski-dostum-att">My Old Friend, AT&amp;T – Eski Dostum, AT&amp;T</h2>
+<p>İlk olarak AT&amp;T sentaksını ele alalım.Hatta şuan hiçbir şeyden anlamıyor olsak da sadece
+gözümüzün ucuyla bakmak için basit bir “Hello world” uygulamasını inceleyelim.</p>
+<pre><code>.text
+.global _start
+_start:
+movl ​ <span class="hljs-number">13</span> ​,​%edx
+movl ​$msg​,​%ecx
+movl $​ <span class="hljs-number">1</span> ​,​%ebx
+movl $​ <span class="hljs-number">4</span> ​,​%eax
+<span class="hljs-type">int</span> $​ <span class="hljs-number">0</span> ​x</code></pre><pre><code>movl $​ <span class="hljs-number">0</span> ​,​%ebx
+movl $​ <span class="hljs-number">1</span> ​,​%eax
+<span class="hljs-type">int</span> $​ <span class="hljs-number">0</span> ​x</code></pre><pre><code><span class="hljs-selector-class">.data</span>
+<span class="hljs-selector-tag">msg</span>:
+.​<span class="hljs-selector-tag">ascii</span>​ ​"<span class="hljs-selector-tag">Hello</span> <span class="hljs-selector-tag">world</span>!\<span class="hljs-selector-tag">n</span>"</code></pre><p>Bu sentaks oldukça basit bir işi, Linux sistem çağrılarını (syscall) kullanarak “Hello, world”
+yazmaktadır. Sistem çağrısı veya Linux nedir diye endişe etmeyin.İşletim sistemlerinden ve
+sistem çağrılarından (syscall) son kısımda -üçüncü- bahsedeceğiz.Daha önce Assembly ile
+uğraşmadıysanız bu kodu anlamakla uğraşmanıza da gerek yok.Bu yazı dizgesiyle birlikte
+aşama aşama birçok meseleyi zaten inceleyeceğiz ve umuyorum ki, bu kodu, yazı dizgesini
+tamamıyla okuyup takip edip en nihayetinde bitirdikten sonra ezberden yazabilecek kadar
+Assembly ile uğraşmış olacaksınız.Şuan sadece teorik denilebilecek ve hem çalışacağımız
+ortamı oluşturabilmek için hem de yazacağımız kodu neden ve niçin o şekilde veya bu
+şekilde yazdığımızı anlayabilmek adına bir önbilgi kazanıyoruz. Ayrıca tarihsellik problemini
+de bir şekilde çözmüş olacağız: “16-bit,32-bit ve 64-bit”. (Şuan böyle bir problem yaşamıyor
+olabilirsiniz ama her alanda,branşta veya konuda ihtisas yaparken tarihsellik – uğraştığınız
+işin gelişimi ve metodolojilerinin evrilmesini belli bir kronolojide anlamakta- problemi yaşar ve
+bir şekilde öğrendiklerinizi ilişkisel olarak bir kronolojik sıraya sokmak zorunda kalırsınız.)</p>
+<p>AT&amp;T sentaksı ilk bakışta göze oldukça karmaşık ve korkunç bir görünüme sahipmiş gibi
+gelebilir.Ancak bu yaklaşımla aslında biraz daha işlevsel ve uzun satırlar kod yazarken
+bulunduğu bağlama bağlı olmaksızın (okunurken) okunurluluğu uzun vadede artırdığına
+ileride tanıklık edeceksinizdir.Ayrıca belki Intel sentaksına göre daha cool gözüktüğü de
+söylenebilir.</p>
+<h2 id="intel-syntax-the-handsome-guy--yakışıklı-herif-intel">Intel Syntax the Handsome Guy – Yakışıklı Herif Intel</h2>
+<p>AT&amp;T sentaksına kabaca bakarken yaptığımız gibi hemen Intel sentaksı ile yazılmış bir
+“Hello world” uygulamasını inceleyelim.</p>
+<p>Intel sentaksı sade ve anlaşılır olması bakımından çok fazla sevilir. Öğrenmeye yeni
+başlarken genelde tercih edilen sentaks da Intel’in ki olur. Ama AT&amp;T’nin aksine kod satır</p>
+<pre><code>;intel syntax
+global​ _start
+section​ .data
+message:
+db​ ​<span class="hljs-string">'Hello world!'</span>​,​ <span class="hljs-number">0</span>
+section​ .text
+_start:
+​mov​ ​eax​, ​<span class="hljs-number">0</span>x
+​mov​ ​ebx​, ​<span class="hljs-number">0</span>x
+​mov​ ​ecx​, message
+​mov​ ​edx​, ​ <span class="hljs-number">12</span>
+​int​ ​<span class="hljs-number">0</span>x</code></pre><pre><code>​mov​ ​eax​, ​<span class="hljs-number">0</span>x
+​mov​ ​ebx​, ​<span class="hljs-number">0</span>x
+​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0</span>x
+​ret</code></pre><p>sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine
+tanıklık edeceksinizdir.Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü
+taraflarına tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
+vadede doğru ve anlaşılır kod yazıp okumak açısından son derece anlamlı bir tercih
+olabileceğini söyleyebiliriz.</p>
+<p>Aslında karşılaştırmalı şekilde herhangi bir avantaj veya dezavantajdan bahsetmetik. Çünkü
+gerçekten bunu yapacak kadar başta ifade ettiğimiz gibi avantaj ve dezavantaj
+sağlayabilecek (modern halleriyle) bir fark bulunmuyor.Sadece okunabilirliği açısından AT&amp;T
+ilk bakışta daha karmaşık gelmekte.Ve sonraki yazılarda Assembly yazmaya ve anlamaya
+başladığımızda karşımıza çıkacak olan “opcode” kavramı açısından AT&amp;T’de “data”nın
+boyutuna göre isimlendirilmesine bağlı olarak daha fazla “opcode” olması da belki burada
+zikredilebilir.Ancak bu da tam olarak bir dezavantaj sağlayacak mıdır, tartışılır.</p>
+<p>Velhasıl bu yazı dizgesi boyunca Intel sentaksını kullanarak kodlama yapacak ve
+Assembly’nin özelliklerinden bahsedeceğiz. Genel olarak hem konsepti hem de işleyişi
+anladıktan sonra zaten AT&amp;T ‘yle ya da Intel ile istediğiniz gibi çalışmanız ve diyalekten
+agnostik düşünmeniz pekala mümkün olabilmektedir.</p>
+<h2 id="assembler--her-yiğidin-bir-yoğurt-yiyişi-vardır">Assembler – Her Yiğidin Bir Yoğurt Yiyişi Vardır.</h2>
+<p>Devam Edecek ...</p>
+
+    </body>
+</html>
