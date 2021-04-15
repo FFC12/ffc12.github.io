@@ -15,23 +15,24 @@ mevzuu – , ikinci kısımda Assembler-lardan ve üçüncü kısımda da üzeri
 işletim sisteminin olup olmaması ve bu işletim sistemlerinin farklılıklarının Assembly
 yazarken neden önem arz ettiğinden bahis edeceğiz.
 
-```
-Intel okunduğu gibi “Intel” olarak, AT&T ise “eyti end ti” şeklinde telaffuz edilir.
-```
+>
+>   Intel okunduğu gibi “Intel” olarak, AT&T ise “eyti end ti” şeklinde telaffuz edilir.
+>
+
 Bu yazıda aslında diğer bölümlerdeki pekçok meselenin temelini atacak ve en önemlisi
 tarihsel olarak bir bakış kazandırmaya gayret edeceğiz. Tarihsel bir bakıştan neyi murad
 ettiğimizi yazının son cümlelerine doğru iyi anlayacağımızı düşünerek geçiyorum.
 
-```
-Sentaks Nedir?
-```
-```
-Söz zincirinde birbirini izleyen ve belli bir birim oluşturan öğeler birleşimi,
-sözcüklerin tümcede dilbilgisi kurallarına göre dizilişi, sıralanışı.
-```
-```
-Google
-```
+
+>Sentaks Nedir?
+>
+>   Söz zincirinde birbirini izleyen ve belli bir birim oluşturan öğeler birleşimi,
+>   sözcüklerin tümcede dilbilgisi kurallarına göre dizilişi, sıralanışı.
+>
+>
+>   Google
+
+
 Basitçe bunu bir versus’a indirgeyecek olursak aslında Unix dünyası vs Microsoft şeklinde
 bir versusla da gösterilebilirdi. Unix dünyasında AT&T sentaksı yaygın olarak kullanılır(bknz.
 
