@@ -95,7 +95,7 @@ söylenebilir.</p>
 <p>AT&amp;T sentaksına kabaca bakarken yaptığımız gibi hemen Intel sentaksı ile yazılmış bir
 “Hello world” uygulamasını inceleyelim.</p>
 <p>Intel sentaksı sade ve anlaşılır olması bakımından çok fazla sevilir. Öğrenmeye yeni
-başlarken genelde tercih edilen sentaks da Intel’in ki olur. Ama AT&amp;T’nin aksine kod satır</p>
+başlarken genelde tercih edilen sentaks da Intel’in ki olur:</p>
 <pre><code class="assembly">;intel syntax
 global​ _start
 section​ .data
@@ -113,12 +113,13 @@ _start:
     ​mov​ ​ebx​, ​<span class="hljs-number">0x00</span>
     ​<span class="hljs-type">int</span>​ ​<span class="hljs-number">0x80</span>
     ​ret</code></pre>
-<p>sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine
-tanıklık edeceksinizdir.Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü
-taraflarına tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
+<p>Ama AT&amp;T’nin aksine kod satır sayısı artıkça yeterli tecrübeyle bile 
+anlaşılırlık açısından bunun bir ilüzyon olabileceğine tanıklık edeceksinizdir.
+Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü taraflarına 
+tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
 vadede doğru ve anlaşılır kod yazıp okumak açısından son derece anlamlı bir tercih
 olabileceğini söyleyebiliriz.</p>
-<p>Aslında karşılaştırmalı şekilde herhangi bir avantaj veya dezavantajdan bahsetmetik. Çünkü
+<p>Aslında karşılaştırmalı şekilde herhangi bir avantaj veya dezavantajdan bahsetmedik. Çünkü
 gerçekten bunu yapacak kadar başta ifade ettiğimiz gibi avantaj ve dezavantaj
 sağlayabilecek (modern halleriyle) bir fark bulunmuyor.Sadece okunabilirliği açısından AT&amp;T
 ilk bakışta daha karmaşık gelmekte.Ve sonraki yazılarda Assembly yazmaya ve anlamaya

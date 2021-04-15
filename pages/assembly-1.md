@@ -103,7 +103,7 @@ AT&T sentaksına kabaca bakarken yaptığımız gibi hemen Intel sentaksı ile y
 “Hello world” uygulamasını inceleyelim.
 
 Intel sentaksı sade ve anlaşılır olması bakımından çok fazla sevilir. Öğrenmeye yeni
-başlarken genelde tercih edilen sentaks da Intel’in ki olur. Ama AT&T’nin aksine kod satır
+başlarken genelde tercih edilen sentaks da Intel’in ki olur:
 
 ```assembly
 ;intel syntax
@@ -125,13 +125,14 @@ _start:
     ​ret
 ```
 
-sayısı artıkça yeterli tecrübeyle bile anlaşılırlık açısından bunun bir ilüzyon olabileceğine
-tanıklık edeceksinizdir.Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü
-taraflarına tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
+Ama AT&T’nin aksine kod satır sayısı artıkça yeterli tecrübeyle bile 
+anlaşılırlık açısından bunun bir ilüzyon olabileceğine tanıklık edeceksinizdir.
+Tabi buradaki ufak kod parçacıklarıyla tüm iyi taraflarına ve kötü taraflarına 
+tanıklık etmek mümkün değildir.Ama şuan öğrenme aşamasındaki birileri için kısa
 vadede doğru ve anlaşılır kod yazıp okumak açısından son derece anlamlı bir tercih
 olabileceğini söyleyebiliriz.
 
-Aslında karşılaştırmalı şekilde herhangi bir avantaj veya dezavantajdan bahsetmetik. Çünkü
+Aslında karşılaştırmalı şekilde herhangi bir avantaj veya dezavantajdan bahsetmedik. Çünkü
 gerçekten bunu yapacak kadar başta ifade ettiğimiz gibi avantaj ve dezavantaj
 sağlayabilecek (modern halleriyle) bir fark bulunmuyor.Sadece okunabilirliği açısından AT&T
 ilk bakışta daha karmaşık gelmekte.Ve sonraki yazılarda Assembly yazmaya ve anlamaya
