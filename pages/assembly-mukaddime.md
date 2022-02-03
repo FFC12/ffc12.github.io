@@ -117,6 +117,13 @@ Dolayısıyla aslında bu gösterimle yukarıda tanımladığım pseudo-opcodela
 
 ```
 
+Bunları da yan yana koyduğumda şöyle bir ifade elde ederim:
+
+```
+10101000111100100010111011
+```
+
+Bu ifadeyi CPU RAM'den veya farklı bir memory tipinden fetch kapasitesine göre okuyabilir ve artık işleyebilir. Fetch, decode ve execute olarak tarif edilecek 3 aşamayı yazının ilerleyen kısımlarında detaylı anlatarak cycle-dan bahsedeceğiz.
 
 Instruction Altı Parçacıklar *Opcodes
 -------------------------------------
