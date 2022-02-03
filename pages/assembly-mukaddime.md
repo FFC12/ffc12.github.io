@@ -110,7 +110,8 @@ Dolayısıyla aslında bu gösterimle yukarıda tanımladığım pseudo-opcodela
 ```
 10 = 1010
 11 = 1011
-19 = 100011 // Dikkat edin 4 bit'e sığmadı çünkü dört bit ile maksimum 2^4 yani 16 ve belki sıfırda kullanırsa 15 sayı gösterilebilirdi.
+19 = 100011 // Dikkat edin 4 bit'e sığmadı çünkü dört bit ile maksimum 2^4 
+			// yani 16 ve belki sıfırda kullanırsa 15 sayı gösterilebilirdi.
 
 200 = 11001000 // Dikkat edin 200 de 4 bit'e sığmadı.
 
