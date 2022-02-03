@@ -1,5 +1,7 @@
 # x86 Assembly Yazılarının Mukaddimesi 
-Tarih:​​ 13 Şubat 2021​  
+İlk Yayınlanma Tarihi:​​ 13 Şubat 2021​  
+Son Güncellenme Tarihi: 3 Şubat 2022
+
 
 x86 mimarisine ait bir Assembly yazı serisi hazırlamaya karar verdim.Her yazıda x86 mimarisinin assembly diline dair birçok farklı konuyu ele alacağım (çok da detaylı değil) yazılara başlamadan evvel bir mukaddime yazısı yazmayı uygun gördüm. Bu mukaddime yazısında hızlı bir giriş yaparak genel bir bakış kazandırmaya çalışacağım.Hem de bu yazı serisinden istifade etmek isteyenlerin ön-araştırma yapmalarına yardımcı olacak kapsamda da bahislere yer vereceğim.Ayrıca bu yazı serisinden azami ölçüde istifade etmek isteyenlere bazı tavsiyelerim de şu şekilde olabilir:
 
