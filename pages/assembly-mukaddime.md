@@ -99,7 +99,23 @@ artır
 artır
 ```
 
-Bu pratikte çok doğru olmayabilir.Hatta aklınıza gelen “taşı” neden sayıdan önce neden sonra değil gibi bir sürü soru da olabilir. Bunları şimdilik sormayı bırakmanızı istiyorum. Çünkü bu örnek tamamen anlatabilmem için pseudo-instruction ve opcode-lardan oluşuyor.Yani mesele öğrenmek ve anlamak olarak düşünülebilir bu örnek için.Ancak burada “opcode” diye yeni bir kavramla tanışacağız.
+Bu pratikte çok doğru olmayabilir.Hatta aklınıza gelen “taşı” neden sayıdan önce neden sonra değil gibi bir sürü soru da olabilir. Bunları şimdilik sormayı bırakmanızı istiyorum. Çünkü bu örnek tamamen anlatabilmem için pseudo-instruction ve opcode-lardan oluşuyor.Yani mesele öğrenmek ve anlamak olarak düşünülebilir bu örnek için.Ancak burada “opcode” diye yeni bir kavramla tanışacağız.Ama bundan önce son olarak 0 ve 1-lerden ibarettir konusunu da açıklığa kavuşturalım hemen. Matematiksel olarak 0 ve 1'den kasıt ikilik tabanda (base 2) sayı gösterimi yapmaktır. Buna ileride bahsedeceğimiz binary format diye daha özel bir isim vererek ve hatta 0'a bir şeyin kapalılığını/yanlışlığını/çelişkili olmasını ve 1'e bir şeyin açıklığını/doğruluğunu/totolojik oluşunu gösteren durumlar diyebiliriz. Bilgisayar bilimlerinde 0 ve 1'in data gösterimi için kullanıldığı bir gerçektir. Ve her bir 0 ile 1'e daha genel olarak bit diyoruz. Mesela elimde 4 tane farklı 0 ve 1'den oluşan "0010" gibi bir ifade olduğunda bu 4 bitlik bir ifade diyebilirim. Bunun da 2'lik tabana uyarlandığında matematiksel karşılığı sağdan üzeri 0 ile başlayarak sola doğru 1,2 ve 3 şeklinde artarak 2'nin üzeri olan bir basamak ve bu basamağın 0 veya 1 değerlerinden hangisi varsa onunla çarpılmak suretiyle değerini gösterebilirim. Yani:
+
+```	
+0010 = (2^3 x 0) + (2^2 x 0) + (2^1 x 1) + (2^0 x 0) = 2
+```
+
+Dolayısıyla aslında bu gösterimle yukarıda tanımladığım pseudo-opcodelar(sonraki bölümde) ve instructionlar için de bu gösterimi kullandığımda temelde her şey bilgisayarın CPU'su nezdinde gerçekten 0 ve 1'lerden oluştuğu kanaatimi müşahade etme şansı elde ederim:
+
+```
+10 = 1010
+11 = 1011
+19 = 100011 // Dikkat edin 4 bit'e sığmadı çünkü dört bit ile maksimum 2^4 yani 16 ve belki sıfırda kullanırsa 15 sayı gösterilebilirdi.
+
+200 = 11001000 // Dikkat edin 200 de 4 bit'e sığmadı.
+
+```
+
 
 Instruction Altı Parçacıklar *Opcodes
 -------------------------------------
