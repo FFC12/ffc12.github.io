@@ -71,7 +71,7 @@ Genel olarak register-lar şu şekilde ayrıştırılabilirler (farklı kaynakla
 
 Dikkat ederseniz "E" ile başlayan register-lar x86 mimarisi için, "R" ile başlayanlar ise x64 mimarisi için kullanılmaktadır. İsimlendirmedeki bu farklılık bizim için önemli. Ayrıca x64 mimarisinde "E" ile başlayan registerlar da kullanılabilir. Çünkü x64 mimarisi ayrıca x86 (yani 32-bit) mimarisiyle uyumludur ki aslında x64 mimarisindeki tüm register-lar alt parçalar olarak x86 mimarisine ait register-ları gösterebilmektedirler. Bunun için aşağıdaki tabloyu inceleyebilirsiniz.
 
-![659de28eddb8a842ce33d4366a8bc68e.png](:/7a95d599be084fd58cdd5d7dc55e3219)
+![https://ffc12.github.io/docs/assets/images/659de28eddb8a842ce33d4366a8bc68e.png](:/7a95d599be084fd58cdd5d7dc55e3219)
 
 # Memory'e Yerleşim
 
@@ -135,7 +135,7 @@ msg db 'Hello world!', 0Ah
 
 Burada "msg" değişken ismi olurken "db" hangi boyut ile tanımlanacak bunu belirtmiş olduk. "db" yani bayt, yani toplamda her karakteri 8-bitten oluşacak bir string ifadeyi dizi olarak tanımlamış olduk aslında. Yani 1 baytlık bir veri değil nihayetinde "Hello world". Toplamda boşluk karakteri de dahil (0x20) 11 bayttan oluşuyor ve virgülden sonra 0ah (0xA) yani "\\n" karakteri de eklenerek 12 baytlık char\[12\] tipinde bir değişken tanımlamış olduk diyebiliriz. Ancak burada özellikle 12 tane olduğunu göstermedik. Nasm bu konuda oldukça akıllı olduğu için bu string'i memory-e "H" den başlayarak "\\n" e kadar yerleştirecek. "msg" ismindeki değişken de aslında artık "H" nin bulunduğu memory-deki adresi tutacak. Dolayısıla (msg + n) ile sanki C'de pointer aritmetiği yapar gibi istediğimiz karaktere gidebiliriz. Burası biraz kafanızı karıştışmış olabilir. Bir de şöyle bakın:
 
-![image.png](:/39ebab8e16af4953aeb750c241c6c6ab)
+![https://ffc12.github.io/docs/assets/images/image.png](:/39ebab8e16af4953aeb750c241c6c6ab)
 
 Devam edersek 0ah karakteri aslında hexadecimal kullanımın değişik bir varyasyonu Nasm'da. Bu karakter aşina olduğumuz hexadecimal şekilde 0xA olarak gösterilebilir. 0ah ile sondaki "h" bu karakterin hexadecimal olduğunu gösteriyor sadece. "0ah" yerine "0xa" veya "0xA" da yazabiliriz. Hatta bunu kendiniz dosyada değiştirip tekrar derlerseniz herhangi bir şeyin değişmediğini göreceksiniz. Peki bunu neden "Hello world\\n" şeklinde değil de "Hello world", 0ah şeklinde gösterdik? Bunun sebebi Nasm'ın yani Assembler-ın stringleri formatlıyor olmamasıdır. Yani high-level dillerde genelde bu compiler tarafında yorumlanarak bunun bir "escape sequence" olduğu anlaşılır. Ancak burada biz virgül yardımıyla farklı karakterleri ayrıca string'den bağımsız olarak sonuna ASCII değerine bakarak byte olarak (ASCII karakterlerinin hepsi 1 bayt zaten) koyabiliriz. Yani "\\n" ifadesi eğer ki "Hello world\\n" bu şekilde yazılmış olsaydı "\\" ve "\\n" sanki "H" veya "w" gibi karakterlermişcesine memory-e yerleştirilecek ilen 0ah ile biz doğrudan "line feed" yani ASCII karşılığı 10 olan karakteri de eklemiş olduk. 
 
@@ -161,7 +161,7 @@ Burada daha önceki yazılarda bahsettiğim instruction ve opcode kavramlarına 
 
 Dolayısıyla "mov eax, 4" yani "mov eax, 0x4" ile yapacağımız sistem çağrısının hangisi olduğunu belirtiyoruz. "0x4" SYS_WRITE sistem çağrısının kodudur. Bu sistem çağrılarının hepsini görmek için [şuraya](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86-32_bit) bakabilirsiniz. Tablo şeklinde listelenmiş zaten C standart kütüphanesinden veya Unix sistem çağrılarından aşina olabileceğiniz Linux sistem çağrıları bu şekildedir. Bizi şuan için ilgilendiren "write" 5 satırdaki 4 numaralı fonksiyondur:
 
-![7d26385aec0428698dea6ef35060be68.png](:/3b0409248c304204ac018d323e95c0a6)
+![https://ffc12.github.io/docs/assets/images/7d26385aec0428698dea6ef35060be68.png](:/3b0409248c304204ac018d323e95c0a6)
 
 Görüldüğü gibi bu sistem çağrısının yapılması için "eax" register-ında sistem çağrısının numarası, ebx register-ı ile birinci argümanı (write için file descriptor olarak STDOUT yani 1'i, bunun için de [şuraya](https://en.wikipedia.org/wiki/File_descriptor) bakabilirsiniz), ecx register-ı ile ikinci argümanı (buffer'ın yani konsola yazılacak string ifadenin adresini ki bizim durumda zaten msg "H"yi yani string ifademizin başlangıcındaki adresini tutuyordu) ve edx register-ı ile de string ifadenin başlangıç adresinden kaç karakter kadarının konsola yazılacağını belirtmek için bayt cinsinden bir boyut bilgisini argüman olarak vermemiz gerekiyor. Dolayısıyla tekrar baktığımız zaman **edx** register-ına 12 yani string ifademizin boyutunu "\\n" karakteri de dahil olarak argüman olarak **mov** opcode-uyla taşıdık (transfer ettik). Ardından **ecx** register-ına **msg** string datamızın başlangıç adresini verdik ki aslında varsayılan olarak assembly-de tüm değişkenler bir adresi temsil ediyor (tabi deferans da edebiliriz ilerde bahsedeceğiz). Sonra da **ebx** register-ı ile SYS_WRITE sistem çağrısı için gerekli olan file descriptor-ı (Linux'ta her şey bir dosyadır ve o şekilde muamele edilir; bunun için de file descriptoprlar kullanılır) argüman olarak verdik. Ve nihayet **eax** register-ı ile de hangi sistem çağrısını yapacaksak, ki biz SYS_WRITE sistem çağrısını yapacağız, bunu da sağladıktan sonra, kernel-ı "**int 0x80"** interrupt-ı ile çağırdık ve konsolumuza kernel "Hello world"-u yazdırmış oldu.
 
